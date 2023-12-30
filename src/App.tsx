@@ -1,7 +1,8 @@
 import Header from './Header'
 import './App.css'
-import SignIn from './SignIn'
-import SignUp from './SignUp'
+import SignIn from './auth/SignIn'
+import SignUp from './auth/SignUp'
+import AuthDetails from './auth/AuthDetails'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Header />
       <SignIn />
       <SignUp />
+      <AuthDetails />
     </>
   )
 }

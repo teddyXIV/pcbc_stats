@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { auth } from './firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
-const SignIn = () => {
+const SignUp = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const signIn = (e: React.SyntheticEvent) => {
+    const signUp = (e: React.SyntheticEvent) => {
         e.preventDefault();
 
-        signInWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 console.log(userCredential)
             }).catch((error: string) => {
@@ -19,8 +19,8 @@ const SignIn = () => {
     return (
 
         <div className='sign-in-container'>
-            <form onSubmit={signIn}>
-                <h2>Sign in to your account</h2>
+            <form onSubmit={signUp}>
+                <h2>Create an account</h2>
                 <input
                     type='email'
                     placeholder='Enter email'
@@ -33,10 +33,10 @@ const SignIn = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 ></input>
-                <button type='submit'>Sign in</button>
+                <button type='submit'>Sign up</button>
             </form>
         </div>
     )
 }
 
-export default SignIn
+export default SignUp
